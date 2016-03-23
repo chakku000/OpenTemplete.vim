@@ -27,11 +27,10 @@ function! OpenTemplate#Main() abort
         echoerr "拡張子が不明なためテンプレートが開けない死ね"
         return
     endif
-    let g:OpenTemplate#template = readfile(g:OpenTemplate#template_file)
-    let g:OpenTemplate#template_rev = reverse(g:OpenTemplate#template)
-    for str in g:OpenTemplate#template_rev
-        call append(0,str)
-    endfor
+    if !filereadable(g:OpenTemplate#template_file)
+        echoerr "この拡張子のテンプレートファイルは無い死ね"
+    endif
+    call append(0, readfile(g:OpenTemplate#template_file))
 endfunction
 
 
