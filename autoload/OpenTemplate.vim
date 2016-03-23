@@ -21,7 +21,7 @@ let g:OpenTemplate#template_dir = g:OpenTemplate#source_dir . '/TemplateFile/'
 
 function! OpenTemplate#Main() abort
     "テンプレートファイルの中身
-    if expand('%:e')==''
+    if expand('%:e') ==# ''
         echoerr "拡張子が不明なためテンプレートが開けない死ね"
         return
     endif
